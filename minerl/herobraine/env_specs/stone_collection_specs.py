@@ -78,12 +78,13 @@ class StoneCollection(SimpleEmbodimentEnvSpec):
         return []
 
     # This method sets the conditions for the world the agent will spawn into
-    # We will allow spawning, but we will not allow the passing of time to prevent the light changes from negatively affecting
-    # the model's accuracy. This may be changed in the future depending on how successfult our agent is.
+    # We will allow spawning and the passage of time to replicate a realistic Minecraft environment
+    # and so that the conditions match the environment of the ObtainDiamond dataset used for training
     def create_server_initial_conditions(self) -> List[Handler]:
         return [
             handlers.TimeInitialCondition(
-                allow_passage_of_time=False
+                start_time=6000,
+                allow_passage_of_time=True,
             ),
             handlers.SpawningInitialCondition(
                 allow_spawning=True
