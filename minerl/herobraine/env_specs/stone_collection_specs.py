@@ -79,7 +79,7 @@ class StoneCollection(SimpleEmbodimentEnvSpec):
 
     # This method sets the conditions for the world the agent will spawn into
     # We will allow spawning and the passage of time to replicate a realistic Minecraft environment
-    # and so that the conditions match the environment of the ObtainDiamond dataset used for training
+    # and so that the conditions match the environment of the ObtainIronPickaxe dataset used for training
     def create_server_initial_conditions(self) -> List[Handler]:
         return [
             handlers.TimeInitialCondition(
