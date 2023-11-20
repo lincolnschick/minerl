@@ -7,6 +7,7 @@ import gym
 
 from minerl.herobraine.env_spec import EnvSpec
 from minerl.herobraine.env_specs.treechop_specs import Treechop
+from minerl.herobraine.env_specs.stone_collection_specs import StoneCollection
 from minerl.herobraine.env_specs.navigate_specs import Navigate
 from minerl.herobraine.env_specs.obtain_specs import ObtainDiamond, ObtainDiamondSurvival, ObtainIronPickaxe, Obtain, \
     ObtainDiamondDebug
@@ -18,6 +19,8 @@ import os
 # Must load non-obfuscated envs first!
 # Publish.py depends on this order for black-listing streams
 MINERL_TREECHOP_V0 = Treechop()
+
+STONE_COLLECTION_V0 = StoneCollection()
 
 MINERL_NAVIGATE_V0 = Navigate(dense=False, extreme=False)
 MINERL_NAVIGATE_EXTREME_V0 = Navigate(dense=False, extreme=True)
@@ -46,7 +49,7 @@ MINERL_OBTAIN_IRON_PICKAXE_DENSE_V0 = ObtainIronPickaxe(dense=True)
 
 # Competition environments.
 # TODO: Determine naming schemes
-comp_envs = [MINERL_OBTAIN_DIAMOND_V0, MINERL_TREECHOP_V0, MINERL_NAVIGATE_V0, MINERL_OBTAIN_IRON_PICKAXE_V0]
+comp_envs = [MINERL_OBTAIN_DIAMOND_V0, MINERL_TREECHOP_V0, STONE_COLLECTION_V0, MINERL_NAVIGATE_V0, MINERL_OBTAIN_IRON_PICKAXE_V0]
 comp_obfuscator_dir = os.path.join(
 
     # TODO FORMAT THIS AUTOMATICALLY USING CIRCULAR IMPORTS
@@ -120,6 +123,7 @@ for env_spec in ENV_SPECS:
 
 BASIC_ENV_SPECS: List[EnvSpec] = [
     MINERL_TREECHOP_V0,
+    STONE_COLLECTION_V0,
     MINERL_NAVIGATE_V0,
     MINERL_NAVIGATE_DENSE_V0,
     MINERL_NAVIGATE_EXTREME_V0,
