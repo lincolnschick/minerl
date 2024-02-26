@@ -37,6 +37,7 @@ class ML4MCSurvival(SimpleEmbodimentEnvSpec):
                 OTHER
             ], _default='air', _other=OTHER),
             handlers.ObservationFromCurrentLocation(),
+            handlers.ObservationFromLifeStats(),
         ]
 
     # Allows scripts to place blocks, equip items, craft items, and smelt items
