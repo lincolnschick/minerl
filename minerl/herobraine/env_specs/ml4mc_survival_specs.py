@@ -43,15 +43,15 @@ class ML4MCSurvival(SimpleEmbodimentEnvSpec):
     # Allows scripts to place blocks, equip items, craft items, and smelt items
     def create_actionables(self):
         return super().create_actionables() + [
-            handlers.PlaceBlock([NONE, 'dirt', 'stone', 'cobblestone', 'crafting_table', 'furnace', 'torch'],
+            handlers.PlaceBlock([NONE, 'dirt', 'stone', 'cobblestone', 'crafting_table', 'furnace', 'torch', 'chest', 'stone_slab'],
                                 _other=NONE, _default=NONE),
             handlers.EquipAction([NONE, 'air', 'wooden_axe', 'wooden_pickaxe', 'stone_axe', 'stone_pickaxe', 'iron_axe',
                                   'iron_pickaxe'], _other=NONE, _default=NONE),
             handlers.CraftAction([NONE, 'torch', 'stick', 'planks', 'crafting_table'], _other=NONE, _default=NONE),
             handlers.CraftNearbyAction(
                 [NONE, 'wooden_axe', 'wooden_pickaxe', 'stone_axe', 'stone_pickaxe', 'iron_axe', 'iron_pickaxe',
-                 'furnace'], _other=NONE, _default=NONE),
-            handlers.SmeltItemNearby([NONE, 'iron_ingot', 'coal'], _other=NONE, _default=NONE),
+                 'furnace', 'chest', 'stone_slab'], _other=NONE, _default=NONE),
+            handlers.SmeltItemNearby([NONE, 'iron_ingot', 'coal', 'stone', 'glass'], _other=NONE, _default=NONE),
         ]
 
     # No rewards for now with this environment
